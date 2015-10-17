@@ -1,7 +1,8 @@
 <h1>Products Main Page</h1>
 <% @products.each do |p| %>
-<h4><%= p.name %></h4>
+<h4><%= p.name %><a href="/products/<%= p.id %>">Show</a></h4>
 <h5>$<%= "%.2f" % p.pricing %></h5>
 <p><%= p.description %></p>
+<br>
 <% end %>
 <a href="/products/new">New Product</a>
