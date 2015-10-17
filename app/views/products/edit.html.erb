@@ -1,2 +1,15 @@
 <h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<form action="/products/<%= @product.id %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<label for="name">Product Name</label>
+	<input type="text" id="name" name="product[name]" value="<%= @product.name %>">
+	
+	<label for="description">Description</label>
+	<input type="text" id="description" name="product[description]" value="<%= @product.description %>">
+	
+	<label for="pricing">Price</label>
+	<input type="text" id="pricing" name="product[pricing]" value="<%= @product.pricing %>">
+
+	<input type="submit" value="Update">
+</form>
+<a href="/products">Back</a>
