@@ -7,6 +7,5 @@ RSpec.describe 'listing products' do
     expect(page).to have_field("Name")
     expect(page).to have_field("Description")
     expect(page).to have_field("Price")
-    # Product.create(name: "Hat", pricing: 5.99, description: "2016 spring fashion hat")
   end
 end
