@@ -6,12 +6,12 @@ RSpec.describe Product, type: :model do
     expect(product.errors.any?).to eq(true)
   end
   it 'requires a pricing' do
-    product = Product.new(name:"product", price: " ")
+    product = Product.new(name:"product", pricing: " ")
     product.valid?
     expect(product.errors.any?).to eq(true)
   end
   it 'requires a description to be at least 7 characters' do
-    product = Product.new(name:"product", price:"4.65", description:"pro")
+    product = Product.new(name:"product", pricing:"4.65", description:"pro")
     product.valid?
     expect(product.errors.any?).to eq(true)
   end
