@@ -16,3 +16,13 @@ RSpec.describe Product, type: :model do
     expect(product.errors.any?).to eq(true)
   end
 end
+
+describe 'relationships' do
+  it 'belongs to a category' do
+    catg = Category.create(name:"Household")
+    product = catg.products.create(name:"Shoes", description:"Nice shoes", pricing:18.3)
+    product2 = catg.products.create(name:"Hot", description:"Hawaii hat", pricing:12.3)
+    expect(catg.products).to include(product)
+    expect(catg.products).to include(product2)
+  end
+end
