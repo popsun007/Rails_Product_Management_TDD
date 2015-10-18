@@ -11,6 +11,9 @@
 	<label for="pricing">Price</label>
 	<input type="text" id="pricing" name="product[pricing]">
 
+	<label for="category">Category</label>
+	<%= select_tag 'product[category_id]', options_for_select(@categories.collect{ |c| [c.name, c.id] }) %>
+
 	<input type="submit" value="Create">
 </form>
 <a href="/products">Back</a>

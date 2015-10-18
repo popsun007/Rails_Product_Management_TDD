@@ -1,5 +1,7 @@
 <h1>Products#show</h1>
-<h4><%= @product.name %></h4>
-<h5>$<%= "%.2f" % @product.pricing %></h5>
-<p><%= @product.description %></p>
+<h4>Name: <%= @product.name %></h4>
+<h4>Category: <%= @product.category.name %></h4>
+<h5>Price: $<%= "%.2f" % @product.pricing %></h5>
+<p>Description: <%= @product.description %></p>
 <a href="/products/<%= @product.id %>/edit">Edit</a>
+<a href="/products">Back</a>
