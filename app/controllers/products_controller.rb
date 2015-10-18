@@ -32,6 +32,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    Product.find(params[:id]).destroy
+    redirect_to "/products"
   end
 private
   def product_params
