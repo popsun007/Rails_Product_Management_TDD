@@ -5,3 +5,19 @@
 <p>Description: <%= @product.description %></p>
 <a href="/products/<%= @product.id %>/edit">Edit</a>
 <a href="/products">Back</a>
+<br>
+<h4>Comments:</h4>
+<form action="/comments" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="product_id" value="<%= @product.id %>">
+	<textarea name="comment"></textarea>
+	<input type="submit" value="Post">
+</form>
+<% @comments.each do |comment| %>
+	<form action="/comments/<%= comment.id %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="hidden" name="product_id" value="<%= @product.id %>">
+		<input type="hidden" name="_method" value="delete">
+	<p><%= comment.comment %><input type="submit" value="Delete"></p>
+	</form>
+<% end %>

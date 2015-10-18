@@ -1,6 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'creating product' do
   it 'creates a new product and redirect to products page' do
+    Category.create(name:"Household")
     visit "/products/new"
     fill_in "Product Name", with: "Hat"
     fill_in "Description", with: "2016 spring fashion hat"

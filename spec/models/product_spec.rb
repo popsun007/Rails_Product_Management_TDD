@@ -26,4 +26,15 @@ describe 'relationships' do
     expect(product.category).to eq(catg)
     expect(product2.category).to eq(catg2)
   end
+
+describe 'relationships' do
+  it 'has many comments' do
+    catg = Category.create(name:"Household")
+    product = catg.products.create(name: "Hat", description: "2017 spring fashion hat.", pricing: 6.099)
+    comment = product.comments.create(comment:"Nice Hat")
+    comment2 = product.comments.create(comment:"Testing comment")
+    expect(product.comments).to include(comment)
+    expect(product.comments).to include(comment2)
+  end
+end
 end
