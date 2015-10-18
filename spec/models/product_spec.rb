@@ -20,9 +20,10 @@ end
 describe 'relationships' do
   it 'belongs to a category' do
     catg = Category.create(name:"Household")
+    catg2 = Category.create(name:"Accessories")
     product = catg.products.create(name:"Shoes", description:"Nice shoes", pricing:18.3)
-    product2 = catg.products.create(name:"Hot", description:"Hawaii hat", pricing:12.3)
-    expect(catg.products).to include(product)
-    expect(catg.products).to include(product2)
+    product2 = catg2.products.create(name:"Hot", description:"Hawaii hat", pricing:12.3)
+    expect(product.category).to eq(catg)
+    expect(product2.category).to eq(catg2)
   end
 end
