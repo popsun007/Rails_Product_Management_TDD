@@ -27,6 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def update
+    Product.find(params[:id]).update(product_params)
+    redirect_to "/products"
   end
 
   def destroy
